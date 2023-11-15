@@ -25,7 +25,7 @@ DEVICE = 'cuda'
 BATCH_SIZE = 32
 
 # CHANGE CHECKPOINT PATH!
-checkpoint_path = "/home/jaiv/modified_dqn_pong/checkpoints/dqn_500.pth"
+checkpoint_path = "/home/jaiv/modified_dqn_pong/checkpoints/dqn_BLOCKER_HA_LOSS_3.pth"
 
 # ------------------------Create enviroment and agent--------------------------
 
@@ -64,8 +64,8 @@ for i in range(10000):
     obs = new_obs
     score += reward
     if catastrophe:
-        catastrophes =+ 1
+        catastrophes += 1
 
 
-imageio.mimsave(f'./images/initial_line.gif', frames, duration=30)
+imageio.mimsave(f'./images/Blocker_HA_Loss.gif', frames, duration=30)
 print(f'Score: {score}\tNumber of Catastrophes: {catastrophes}')

@@ -101,31 +101,39 @@ class AgentControl:
         # We do differentiation for moving_nn (w or curr_state_action_value) and we dont do it for target_nn (w'),
         # so we dont have to remember operations for backprop. Good for huge amount of operations
         next_state_action_value = next_state_action_value.detach()
+
+
+        # # Calculate Q-target
+        # q_target = human_rewards_tensor + (self.gamma ** self.multi_step) * next_state_action_value
+        # # Apply MSE Loss which will be applied to all BATCH_SIZEx1 rows and output will be 1x1 
+    
+        # # Stack the Q-values of human and robot actions along a new dimension for softmax computation
+        # # [B, 2, _] (where B is batch size, T is timesteps, and D is like the embedding dimension)
+        # Q_values = torch.stack((curr_state_human_action_value, curr_state_action_value), dim=1)
+
+        # # Compute the log softmax probabilities across the actions dimension
+        # # This converts the Q-values into a log probability distribution
+        # # [B, 2, _] (where B is batch size, T is timesteps, and D is like the embedding dimension)
+        # log_probs = F.log_softmax(Q_values, dim=1)
+
+        # # Extract the mean log probability for the human actions
+        # # This is used for calculating a part of the loss related to human actions
+        # # log_probs[:, 0] -> [B, 1, _] and .mean() results in a scalar.
+        # log_prob_aH = log_probs[:, 0].mean()
+
+        # # Calculate MSE loss between the Q-values of the current (robot) state and action pairs (a_R)
+        # # and the target Q-values (based on human rewards and discounted next state values)
+        # mse_loss = self.loss(curr_state_action_value, q_target)
+
+        # # Combine the MSE loss with the mean log probability of the human actions
+        # # This adds an additional term to the loss that accounts for the human actions
+        # loss = mse_loss + log_prob_aH
+
+
         # Calculate Q-target
         q_target = human_rewards_tensor + (self.gamma ** self.multi_step) * next_state_action_value
         # Apply MSE Loss which will be applied to all BATCH_SIZEx1 rows and output will be 1x1 
-    
-        # Stack the Q-values of human and robot actions along a new dimension for softmax computation
-        # [B, 2, _] (where B is batch size, T is timesteps, and D is like the embedding dimension)
-        Q_values = torch.stack((curr_state_human_action_value, curr_state_action_value), dim=1)
-
-        # Compute the log softmax probabilities across the actions dimension
-        # This converts the Q-values into a log probability distribution
-        # [B, 2, _] (where B is batch size, T is timesteps, and D is like the embedding dimension)
-        log_probs = F.log_softmax(Q_values, dim=1)
-
-        # Extract the mean log probability for the human actions
-        # This is used for calculating a part of the loss related to human actions
-        # log_probs[:, 0] -> [B, 1, _] and .mean() results in a scalar.
-        log_prob_aH = log_probs[:, 0].mean()
-
-        # Calculate MSE loss between the Q-values of the current (robot) state and action pairs (a_R)
-        # and the target Q-values (based on human rewards and discounted next state values)
-        mse_loss = self.loss(curr_state_action_value, q_target)
-
-        # Combine the MSE loss with the mean log probability of the human actions
-        # This adds an additional term to the loss that accounts for the human actions
-        loss = mse_loss + log_prob_aH
+        return self.loss(curr_state_human_action_value, q_target)
 
         return loss
 

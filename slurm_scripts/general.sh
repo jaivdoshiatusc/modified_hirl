@@ -8,4 +8,4 @@
 
 source /opt/anaconda3/bin/activate /home/jaiv/miniconda3/envs/hirl
 
-srun python3 /home/jaiv/modified_dqn_pong/main.py --name "BLOCKER_HA_LOSS" --wandb
+srun python3 /home/jaiv/modified_dqn_pong/main.py --name "BLOCKER_2" --wandb

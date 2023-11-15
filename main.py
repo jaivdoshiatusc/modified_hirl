@@ -13,6 +13,7 @@ import wandb
 import argparse
 
 import random
+import os
 
 # ---------------------------------Arguments-----------------------------------
 parser = argparse.ArgumentParser()
@@ -38,7 +39,7 @@ DQN_HYPERPARAMS = {
 
 ENV_NAME = "PongNoFrameskip-v4"
 RECORD = False
-MAX_GAMES = 500
+MAX_GAMES = 300
 DEVICE = 'cuda'
 BATCH_SIZE = 32
 
@@ -61,6 +62,7 @@ obs = env.reset()
 # Create Agent
 agent = Agent(env, hyperparameters=DQN_HYPERPARAMS, device=DEVICE, max_games=MAX_GAMES, wandb=run)
 
+os.makedirs("checkpoints", exist_ok=True)
 # --------------------------------Learning-------------------------------------
 num_games = 0
 while num_games < MAX_GAMES:
@@ -94,5 +96,5 @@ while num_games < MAX_GAMES:
         obs = env.reset()
         
     
-savename = "./checkpoints/{EXPERIMENT_NAME}/dqn_" + str(num_games) + ".pth"
+savename = "./checkpoints/dqn_" + str(EXPERIMENT_NAME) + ".pth"
 torch.save(agent.agent_control.moving_nn.state_dict(), savename)

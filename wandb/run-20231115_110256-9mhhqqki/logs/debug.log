@@ -25,3 +25,4 @@ config: {'eps_start': 1, 'eps_end': 0.02, 'eps_decay': 100000, 'buffer_size': 15
 2023-11-15 11:03:06,860 INFO    MainThread:33791 [wandb_run.py:_redirect():2119] Wrapping output streams.
 2023-11-15 11:03:06,860 INFO    MainThread:33791 [wandb_run.py:_redirect():2144] Redirects installed.
 2023-11-15 11:03:06,861 INFO    MainThread:33791 [wandb_init.py:init():845] run started, returning control to user process
+2023-11-15 12:38:21,185 WARNING MsgRouterThr:33791 [router.py:message_loop():77] message_loop has been closed
