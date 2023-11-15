@@ -1,0 +1,316 @@
+2023-11-15 11:02:56,785 INFO    StreamThr :34008 [internal.py:wandb_internal():86] W&B internal server running at pid: 34008, started at: 2023-11-15 11:02:56.755282
+2023-11-15 11:02:56,787 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status
+2023-11-15 11:02:56,789 INFO    WriterThread:34008 [datastore.py:open_for_write():85] open: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/run-9mhhqqki.wandb
+2023-11-15 11:02:56,794 DEBUG   SenderThread:34008 [sender.py:send():380] send: header
+2023-11-15 11:02:56,811 DEBUG   SenderThread:34008 [sender.py:send():380] send: run
+2023-11-15 11:02:57,177 INFO    SenderThread:34008 [dir_watcher.py:__init__():211] watching files in: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files
+2023-11-15 11:02:57,177 INFO    SenderThread:34008 [sender.py:_start_run_threads():1122] run started: 9mhhqqki with start time 1700046176.76828
+2023-11-15 11:02:57,199 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: check_version
+2023-11-15 11:02:57,199 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: check_version
+2023-11-15 11:02:57,329 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: run_start
+2023-11-15 11:02:57,339 DEBUG   HandlerThread:34008 [system_info.py:__init__():32] System info init
+2023-11-15 11:02:57,339 DEBUG   HandlerThread:34008 [system_info.py:__init__():47] System info init done
+2023-11-15 11:02:57,339 INFO    HandlerThread:34008 [system_monitor.py:start():194] Starting system monitor
+2023-11-15 11:02:57,339 INFO    SystemMonitor:34008 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2023-11-15 11:02:57,340 INFO    HandlerThread:34008 [system_monitor.py:probe():214] Collecting system info
+2023-11-15 11:02:57,341 INFO    SystemMonitor:34008 [interfaces.py:start():190] Started cpu monitoring
+2023-11-15 11:02:57,342 INFO    SystemMonitor:34008 [interfaces.py:start():190] Started disk monitoring
+2023-11-15 11:02:57,344 INFO    SystemMonitor:34008 [interfaces.py:start():190] Started gpu monitoring
+2023-11-15 11:02:57,345 INFO    SystemMonitor:34008 [interfaces.py:start():190] Started memory monitoring
+2023-11-15 11:02:57,346 INFO    SystemMonitor:34008 [interfaces.py:start():190] Started network monitoring
+2023-11-15 11:02:57,406 DEBUG   HandlerThread:34008 [system_info.py:probe():196] Probing system
+2023-11-15 11:02:57,415 DEBUG   HandlerThread:34008 [system_info.py:_probe_git():181] Probing git
+2023-11-15 11:02:57,445 DEBUG   HandlerThread:34008 [system_info.py:_probe_git():189] Probing git done
+2023-11-15 11:02:57,446 DEBUG   HandlerThread:34008 [system_info.py:probe():244] Probing system done
+2023-11-15 11:02:57,446 DEBUG   HandlerThread:34008 [system_monitor.py:probe():223] {'os': 'Linux-4.15.0-212-generic-x86_64-with-glibc2.17', 'python': '3.8.18', 'heartbeatAt': '2023-11-15T11:02:57.406267', 'startedAt': '2023-11-15T11:02:56.702672', 'docker': None, 'cuda': '10.1.105', 'args': ('--name', 'BLOCKER_HA_LOSS', '--wandb'), 'state': 'running', 'program': '/home/jaiv/modified_dqn_pong/main.py', 'codePathLocal': 'main.py', 'codePath': 'main.py', 'git': {'remote': 'https://github.com/jaivdoshiatusc/modified_hirl.git', 'commit': '5a231d809ed3878c0557ec41821d3ea03338a49f'}, 'email': None, 'root': '/home/jaiv/modified_dqn_pong', 'host': 'ink-lucy', 'username': 'jaiv', 'executable': '/home/jaiv/miniconda3/envs/hirl/bin/python3', 'cpu_count': 28, 'cpu_count_logical': 56, 'cpu_freq': {'current': 1277.363660714286, 'min': 1200.0, 'max': 3500.0}, 'cpu_freq_per_core': [{'current': 1197.533, 'min': 1200.0, 'max': 3500.0}, {'current': 1199.662, 'min': 1200.0, 'max': 3500.0}, {'current': 1198.35, 'min': 1200.0, 'max': 3500.0}, {'current': 1200.127, 'min': 1200.0, 'max': 3500.0}, {'current': 1283.869, 'min': 1200.0, 'max': 3500.0}, {'current': 1200.21, 'min': 1200.0, 'max': 3500.0}, {'current': 1199.439, 'min': 1200.0, 'max': 3500.0}, {'current': 1201.038, 'min': 1200.0, 'max': 3500.0}, {'current': 1199.127, 'min': 1200.0, 'max': 3500.0}, {'current': 1200.452, 'min': 1200.0, 'max': 3500.0}, {'current': 1927.043, 'min': 1200.0, 'max': 3500.0}, {'current': 1199.063, 'min': 1200.0, 'max': 3500.0}, {'current': 1626.587, 'min': 1200.0, 'max': 3500.0}, {'current': 1697.481, 'min': 1200.0, 'max': 3500.0}, {'current': 1272.217, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.27, 'min': 1200.0, 'max': 3500.0}, {'current': 1198.906, 'min': 1200.0, 'max': 3500.0}, {'current': 1199.708, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.285, 'min': 1200.0, 'max': 3500.0}, {'current': 1199.061, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.982, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.393, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.728, 'min': 1200.0, 'max': 3500.0}, {'current': 1199.015, 'min': 1200.0, 'max': 3500.0}, {'current': 1198.074, 'min': 1200.0, 'max': 3500.0}, {'current': 1198.986, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.836, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.635, 'min': 1200.0, 'max': 3500.0}, {'current': 1198.867, 'min': 1200.0, 'max': 3500.0}, {'current': 1198.101, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.577, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.325, 'min': 1200.0, 'max': 3500.0}, {'current': 1247.644, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.353, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.219, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.455, 'min': 1200.0, 'max': 3500.0}, {'current': 1198.193, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.326, 'min': 1200.0, 'max': 3500.0}, {'current': 1628.096, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.272, 'min': 1200.0, 'max': 3500.0}, {'current': 1565.703, 'min': 1200.0, 'max': 3500.0}, {'current': 1278.577, 'min': 1200.0, 'max': 3500.0}, {'current': 1220.767, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.276, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.325, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.442, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.888, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.709, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.877, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.588, 'min': 1200.0, 'max': 3500.0}, {'current': 1198.414, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.384, 'min': 1200.0, 'max': 3500.0}, {'current': 1198.65, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.64, 'min': 1200.0, 'max': 3500.0}, {'current': 1198.373, 'min': 1200.0, 'max': 3500.0}, {'current': 1197.991, 'min': 1200.0, 'max': 3500.0}], 'disk': {'/': {'total': 457.37662506103516, 'used': 167.31623458862305}}, 'gpu': 'NVIDIA GeForce GTX 1080 Ti', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1080 Ti', 'memory_total': 11721506816}], 'memory': {'total': 629.7857055664062}}
+2023-11-15 11:02:57,446 INFO    HandlerThread:34008 [system_monitor.py:probe():224] Finished collecting system info
+2023-11-15 11:02:57,446 INFO    HandlerThread:34008 [system_monitor.py:probe():227] Publishing system info
+2023-11-15 11:02:57,446 DEBUG   HandlerThread:34008 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-11-15 11:02:57,469 DEBUG   HandlerThread:34008 [system_info.py:_save_pip():68] Saving pip packages done
+2023-11-15 11:02:57,469 DEBUG   HandlerThread:34008 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2023-11-15 11:02:58,182 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_created():271] file/dir created: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/conda-environment.yaml
+2023-11-15 11:02:58,183 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_created():271] file/dir created: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/requirements.txt
+2023-11-15 11:03:06,767 DEBUG   HandlerThread:34008 [system_info.py:_save_conda():87] Saving conda packages done
+2023-11-15 11:03:06,786 INFO    HandlerThread:34008 [system_monitor.py:probe():229] Finished publishing system info
+2023-11-15 11:03:06,845 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:03:06,845 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: keepalive
+2023-11-15 11:03:06,846 DEBUG   SenderThread:34008 [sender.py:send():380] send: files
+2023-11-15 11:03:06,846 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2023-11-15 11:03:06,859 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:03:06,859 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:03:06,863 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:03:07,010 DEBUG   SenderThread:34008 [sender.py:send():380] send: telemetry
+2023-11-15 11:03:07,187 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/conda-environment.yaml
+2023-11-15 11:03:07,187 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_created():271] file/dir created: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:03:07,187 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_created():271] file/dir created: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-metadata.json
+2023-11-15 11:03:07,274 INFO    wandb-upload_0:34008 [upload_job.py:push():131] Uploaded file /tmp/tmp2zc2rkpbwandb/c0u8x5yj-wandb-metadata.json
+2023-11-15 11:03:08,286 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:03:09,213 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:03:10,420 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:03:10,425 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:03:10,425 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:03:10,430 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:03:11,223 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:03:11,224 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_created():271] file/dir created: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:03:11,506 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:03:11,507 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:03:11,507 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:03:11,513 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:03:12,225 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:03:12,684 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:03:12,686 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:03:12,686 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:03:12,701 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:03:13,228 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:03:13,228 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:03:13,710 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:03:14,100 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:03:14,101 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:03:14,102 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:03:14,110 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:03:14,229 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:03:15,250 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:03:15,467 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:03:15,468 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:03:15,468 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:03:15,474 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:03:16,251 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:03:16,708 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:03:16,709 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:03:16,710 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:03:16,715 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:03:17,252 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:03:17,252 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:03:17,929 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:03:17,930 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:03:17,930 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:03:17,936 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:03:18,253 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:03:18,938 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:03:19,171 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:03:19,173 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:03:19,173 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:03:19,179 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:03:19,256 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:03:19,256 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:03:20,230 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:03:20,231 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:03:20,232 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:03:20,237 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:03:20,280 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:03:21,283 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:03:21,601 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:03:21,602 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:03:21,602 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:03:21,609 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:03:21,858 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:03:21,859 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:03:21,863 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:03:22,283 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:03:22,807 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:03:22,808 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:03:22,809 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:03:22,814 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:03:23,286 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:03:23,287 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:03:24,816 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:03:25,295 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:03:29,822 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:03:30,369 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/config.yaml
+2023-11-15 11:03:32,723 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:03:32,724 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:03:32,724 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:03:32,735 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:03:33,384 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:03:35,388 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:03:35,736 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:03:36,859 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:03:36,859 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:03:36,860 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:03:41,013 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:03:44,127 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:03:44,128 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:03:44,128 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:03:44,135 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:03:44,400 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:03:45,403 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:03:46,136 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:03:51,136 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:03:51,859 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:03:51,859 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:03:51,863 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:03:54,807 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:03:54,808 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:03:54,808 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:03:54,832 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:03:55,467 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:03:56,833 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:03:57,346 DEBUG   SystemMonitor:34008 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2023-11-15 11:03:57,349 DEBUG   SenderThread:34008 [sender.py:send():380] send: stats
+2023-11-15 11:03:57,471 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:04:02,351 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:04:06,859 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:04:06,860 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:04:06,861 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:04:07,985 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:04:09,391 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:04:09,392 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:04:09,393 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:04:09,404 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:04:09,499 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:04:11,503 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:04:13,405 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:04:18,406 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:04:20,111 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:04:20,112 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:04:20,112 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:04:20,126 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:04:20,549 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:04:20,549 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:04:21,859 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:04:21,861 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:04:21,861 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:04:24,000 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:04:27,352 DEBUG   SenderThread:34008 [sender.py:send():380] send: stats
+2023-11-15 11:04:29,354 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:04:32,319 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:04:32,320 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:04:32,320 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:04:32,326 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:04:32,606 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:04:32,606 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:04:35,328 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:04:36,859 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:04:36,860 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:04:36,865 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:04:41,005 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:04:42,291 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:04:42,292 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:04:42,292 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:04:42,299 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:04:42,637 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:04:42,638 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:04:46,300 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:04:51,301 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:04:51,860 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:04:51,861 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:04:51,861 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:04:56,955 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:04:56,995 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:04:56,996 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:04:56,996 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:04:57,004 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:04:57,354 DEBUG   SenderThread:34008 [sender.py:send():380] send: stats
+2023-11-15 11:04:57,727 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:04:58,730 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:05:02,356 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:05:06,860 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:05:06,860 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:05:06,864 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:05:07,963 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:05:08,551 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:05:08,552 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:05:08,552 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:05:08,559 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:05:08,743 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:05:08,744 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:05:13,560 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:05:18,561 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:05:21,860 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:05:21,860 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:05:21,865 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:05:22,051 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:05:22,052 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:05:22,052 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:05:22,058 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:05:22,765 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:05:22,766 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:05:24,059 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:05:27,356 DEBUG   SenderThread:34008 [sender.py:send():380] send: stats
+2023-11-15 11:05:29,358 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:05:34,297 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:05:34,298 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:05:34,298 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:05:34,307 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:05:34,795 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:05:34,796 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:05:35,307 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:05:36,861 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:05:36,862 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:05:36,865 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:05:40,951 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:05:45,952 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:05:47,195 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:05:47,196 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:05:47,196 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:05:47,206 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:05:47,827 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:05:48,838 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:05:51,208 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:05:51,861 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:05:51,861 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:05:51,865 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:05:57,106 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:05:57,357 DEBUG   SenderThread:34008 [sender.py:send():380] send: stats
+2023-11-15 11:06:00,695 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:06:00,696 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:06:00,696 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:06:00,702 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:06:00,927 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:06:02,703 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:06:02,931 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:06:06,860 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:06:06,861 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:06:06,866 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:06:08,018 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:06:12,399 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:06:12,400 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:06:12,401 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:06:12,412 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:06:12,948 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:06:12,948 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:06:13,413 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:06:18,414 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:06:21,861 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:06:21,862 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:06:21,865 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:06:22,895 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:06:22,896 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:06:22,896 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:06:22,914 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:06:22,976 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:06:23,915 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:06:24,986 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:06:27,359 DEBUG   SenderThread:34008 [sender.py:send():380] send: stats
+2023-11-15 11:06:29,361 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:06:34,362 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:06:35,151 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:06:35,153 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:06:35,153 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:06:35,159 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:06:36,006 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:06:36,861 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:06:36,861 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:06:36,866 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:06:37,011 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:06:40,084 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:06:45,085 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:06:46,099 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:06:46,100 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:06:46,100 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:06:46,111 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:06:47,038 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log
+2023-11-15 11:06:47,038 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:06:50,113 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:06:51,861 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-15 11:06:51,862 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: stop_status
+2023-11-15 11:06:51,866 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-15 11:06:56,053 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:06:57,362 DEBUG   SenderThread:34008 [sender.py:send():380] send: stats
+2023-11-15 11:07:00,063 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-15 11:07:00,064 DEBUG   SenderThread:34008 [sender.py:send():380] send: history
+2023-11-15 11:07:00,064 DEBUG   SenderThread:34008 [sender.py:send_request():407] send_request: summary_record
+2023-11-15 11:07:00,076 INFO    SenderThread:34008 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-15 11:07:00,113 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/wandb-summary.json
+2023-11-15 11:07:01,076 DEBUG   HandlerThread:34008 [handler.py:handle_request():146] handle_request: status_report
+2023-11-15 11:07:01,153 INFO    Thread-12 :34008 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki/files/output.log

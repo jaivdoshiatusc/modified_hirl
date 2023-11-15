@@ -13,27 +13,23 @@ from collections import namedtuple
 import time
 import numpy as np
 import math
-# import telegram_bot as tg
-
 
 class Agent:
 
     Transition = namedtuple('Transition',('state', 'action', 'next_state', 'reward', 'done', 'human_action', 'human_reward'), rename = False)
     # Transition = namedtuple('Transition',('state', 'action', 'next_state', 'reward', 'done'), rename = False) # 'rename' means not to overwrite invalid field
 
-    def __init__(self, env, hyperparameters, device, writer, max_games, tg_bot, wandb):
+    def __init__(self, env, hyperparameters, device, max_games, wandb):
         self.eps_start = hyperparameters['eps_start']
         self.eps_end = hyperparameters['eps_end']
         self.eps_decay = hyperparameters['eps_decay']
         self.epsilon = hyperparameters['eps_start']
         self.n_iter_update_nn = hyperparameters['n_iter_update_nn']
         self.max_games = max_games
-        self.tg_bot = tg_bot
         self.env = env
 
         self.agent_control = AgentControl(env, device, hyperparameters['learning_rate'], hyperparameters['gamma'], hyperparameters['multi_step'], hyperparameters['double_dqn'], hyperparameters['dueling'])
         self.replay_buffer = ReplayBuffer(hyperparameters['buffer_size'], hyperparameters['buffer_minimum'], hyperparameters['multi_step'], hyperparameters['gamma'])
-        self.summary_writer = writer
         self.wandb = wandb
 
         self.num_catasrophe = 0
@@ -98,10 +94,3 @@ class Agent:
 
         if self.wandb != None:
             self.wandb.log({"num_games": self.num_games, "reward": self.total_reward, "mean_reward": np.mean(self.rewards[-40:]), "loss": np.mean(self.total_loss), "epsilon": self.epsilon, "num_catastrophe": self.num_catasrophe})
-
-        if self.summary_writer != None:
-            self.summary_writer.add_scalar('reward', self.total_reward, self.num_games)
-            self.summary_writer.add_scalar('mean_reward', np.mean(self.rewards[-40:]), self.num_games)
-            self.summary_writer.add_scalar('10_mean_reward', np.mean(self.rewards[-10:]), self.num_games)
-            self.summary_writer.add_scalar('esilon', self.epsilon, self.num_games)
-            self.summary_writer.add_scalar('loss', np.mean(self.total_loss), self.num_games)

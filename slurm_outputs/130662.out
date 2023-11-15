@@ -1,0 +1,11 @@
+wandb: Currently logged in as: jaivdoshi. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in /home/jaiv/modified_dqn_pong/wandb/run-20231115_110256-9mhhqqki
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run BLOCKER_HA_LOSS
+wandb: ⭐️ View project at https://wandb.ai/jaivdoshi/modified_hirl
+wandb: 🚀 View run at https://wandb.ai/jaivdoshi/modified_hirl/runs/9mhhqqki
+A.L.E: Arcade Learning Environment (version 0.8.1+53f58b7)
+[Powered by Stella]

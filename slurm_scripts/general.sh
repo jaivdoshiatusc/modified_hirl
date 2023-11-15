@@ -4,8 +4,8 @@
 #SBATCH --cpus-per-task=5
 #SBATCH --time=1-00:00:00
 #SBATCH --nodelist=ink-lucy
-#SBATCH --output=/home/jaiv/drl-dqn-atari-pong/slurm_outputs/%j.out
+#SBATCH --output=/home/jaiv/modified_dqn_pong/slurm_outputs/%j.out
 
 source /opt/anaconda3/bin/activate /home/jaiv/miniconda3/envs/hirl
 
-srun python3 /home/jaiv/modified_dqn_pong/main.py
+srun python3 /home/jaiv/modified_dqn_pong/main.py --name "BLOCKER_HA_LOSS" --wandb

@@ -8,10 +8,17 @@ import gym
 from agent import Agent
 import atari_wrappers
 import torch
-from torch.utils.tensorboard import SummaryWriter
-import time
 
 import wandb
+import argparse
+
+import random
+
+# ---------------------------------Arguments-----------------------------------
+parser = argparse.ArgumentParser()
+parser.add_argument("--name", type=str, help="set the name of the experiment")
+parser.add_argument("--wandb", help="sets wandb to be true", action="store_true")
+args = parser.parse_args()
 
 # ---------------------------------Parameters----------------------------------
 
@@ -35,25 +42,25 @@ MAX_GAMES = 500
 DEVICE = 'cuda'
 BATCH_SIZE = 32
 
-# For TensorBoard
-SUMMARY_WRITER = False
-WANDB = True
-LOG_DIR = 'content/runs'
-name = 'DQN Multi-step=%d,Double=%r,Dueling=%r' % (DQN_HYPERPARAMS['multi_step'], DQN_HYPERPARAMS['double_dqn'], DQN_HYPERPARAMS['dueling'])
-# For Telegram
-TG_BOT = False
+WANDB = args.wandb
+
+EXPERIMENT_NAME = args.name
 
 # ------------------------Create enviroment and agent--------------------------
+# Initialize WANDB
+run = wandb.init(project="modified_hirl", name=EXPERIMENT_NAME, config=DQN_HYPERPARAMS) if WANDB else None
+
+# Create / Initialize Environment
 env = atari_wrappers.make_env("PongNoFrameskip-v4")  # gym.make("PongNoFrameskip-v4")
-# For recording few seelcted episodes. 'force' means overwriting earlier recordings
-if RECORD:
-    env = gym.wrappers.Monitor(env, "main-" + ENV_NAME, force=True)
+
+env_seed = random.randint(0, 10000)
+env.seed(env_seed)
+
 obs = env.reset()
-# Create TensorBoard writer that will create graphs
-writer = SummaryWriter(log_dir=LOG_DIR + '/' + name + str(time.time())) if SUMMARY_WRITER else None
-run = wandb.init() if WANDB else None
-# Create agent that will learn
-agent = Agent(env, hyperparameters=DQN_HYPERPARAMS, device=DEVICE, writer=writer, max_games=MAX_GAMES, tg_bot=TG_BOT, wandb=run)
+
+# Create Agent
+agent = Agent(env, hyperparameters=DQN_HYPERPARAMS, device=DEVICE, max_games=MAX_GAMES, wandb=run)
+
 # --------------------------------Learning-------------------------------------
 num_games = 0
 while num_games < MAX_GAMES:
@@ -61,15 +68,13 @@ while num_games < MAX_GAMES:
     action = agent.select_eps_greedy_action(obs)
     new_obs, reward, done, catastrophe = env.step(action)
 
-    # catastrophe implementation
+    # Catastrophe implementation
     human_action = int(action)
     human_reward = reward
     if catastrophe:
         human_action = 2
         human_reward = -100
         agent.num_catasrophe += 1
-
-    # import ipdb; ipdb.set_trace()
 
     # Add s, a, s', r, a_H, r_H to buffer B
     agent.add_to_buffer(obs, action, new_obs, reward, done, human_action, human_reward)
@@ -82,12 +87,12 @@ while num_games < MAX_GAMES:
         num_games = num_games + 1
         agent.print_info()
         agent.reset_parameters()
+
+        env_seed = random.randint(0, 10000)
+        env.seed(env_seed)
+
         obs = env.reset()
+        
     
-savename = "./checkpoints/dqn_" + str(num_games) + ".pth"
+savename = "./checkpoints/{EXPERIMENT_NAME}/dqn_" + str(num_games) + ".pth"
 torch.save(agent.agent_control.moving_nn.state_dict(), savename)
-
-writer.close()
-gym.wrappers.Monitor.close(env)
-
-# !tensorboard --logdir="D:\Users\Leon Jovanovic\Documents\Reinforcement Learning\reinforcement-learning-atari-pong\content\runs" --host=127.0.0.1

@@ -1,0 +1,36 @@
+/home/jaiv/miniconda3/envs/hirl/lib/python3.8/site-packages/ale_py/env/gym.py:83: UserWarning: [33mWARN: obs_type "image" should be replaced with the image type, one of: rgb, grayscale
+  logger.warn(
+/home/jaiv/miniconda3/envs/hirl/lib/python3.8/site-packages/gym/utils/passive_env_checker.py:233: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
+  if not isinstance(terminated, (bool, np.bool8)):
+/home/jaiv/miniconda3/envs/hirl/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/jaiv/miniconda3/envs/hirl/lib/python3.8/site-packages/numpy/core/_methods.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+877 0 rew:-2319 mean_rew:nan fps:773, eps:0.99, loss:nan catastrophes:23
+1681 1 rew:-3820 mean_rew:-2319.00 fps:740, eps:0.98, loss:nan catastrophes:38
+2546 2 rew:-4718 mean_rew:-3069.50 fps:734, eps:0.97, loss:nan catastrophes:47
+3653 3 rew:-3818 mean_rew:-3619.00 fps:782, eps:0.96, loss:nan catastrophes:38
+4706 4 rew:-4717 mean_rew:-3668.75 fps:770, eps:0.95, loss:nan catastrophes:47
+5560 5 rew:-6218 mean_rew:-3878.40 fps:688, eps:0.94, loss:nan catastrophes:62
+6461 6 rew:-5520 mean_rew:-4268.33 fps:738, eps:0.94, loss:nan catastrophes:55
+7350 7 rew:-3721 mean_rew:-4447.14 fps:715, eps:0.93, loss:nan catastrophes:37
+8077 8 rew:-8718 mean_rew:-4356.38 fps:687, eps:0.92, loss:nan catastrophes:87
+9017 9 rew:-9714 mean_rew:-4841.00 fps:685, eps:0.91, loss:nan catastrophes:97
+9826 10 rew:-7513 mean_rew:-5328.30 fps:695, eps:0.90, loss:nan catastrophes:75
+10697 11 rew:-3719 mean_rew:-5526.91 fps:87, eps:0.89, loss:1013.9664 catastrophes:37
+11486 12 rew:-3220 mean_rew:-5376.25 fps:69, eps:0.89, loss:680.7978 catastrophes:32
+12230 13 rew:-1820 mean_rew:-5210.38 fps:69, eps:0.88, loss:629.1486 catastrophes:18
+13278 14 rew:-2217 mean_rew:-4968.21 fps:71, eps:0.87, loss:474.8600 catastrophes:22
+14074 15 rew:-2821 mean_rew:-4784.80 fps:73, eps:0.86, loss:413.0963 catastrophes:28
+14917 16 rew:-2721 mean_rew:-4662.06 fps:69, eps:0.85, loss:381.4909 catastrophes:27
+15669 17 rew:-1221 mean_rew:-4547.88 fps:75, eps:0.84, loss:337.1813 catastrophes:12
+16703 18 rew:-2618 mean_rew:-4363.06 fps:70, eps:0.83, loss:319.9826 catastrophes:26
+17514 19 rew:-1121 mean_rew:-4271.21 fps:70, eps:0.82, loss:280.6805 catastrophes:11
+18479 20 rew:-3718 mean_rew:-4113.70 fps:71, eps:0.82, loss:251.1924 catastrophes:37
+19395 21 rew:-2120 mean_rew:-4094.86 fps:74, eps:0.81, loss:241.9254 catastrophes:21
+20305 22 rew:-3020 mean_rew:-4005.09 fps:70, eps:0.80, loss:231.4453 catastrophes:30
+21248 23 rew:-2721 mean_rew:-3962.26 fps:69, eps:0.79, loss:213.9816 catastrophes:27
+22067 24 rew:-2019 mean_rew:-3910.54 fps:69, eps:0.78, loss:201.1647 catastrophes:20
+22827 25 rew:-2919 mean_rew:-3834.88 fps:72, eps:0.77, loss:192.6997 catastrophes:29
+23697 26 rew:-3018 mean_rew:-3799.65 fps:70, eps:0.76, loss:186.9302 catastrophes:30
+24509 27 rew:-2720 mean_rew:-3770.70 fps:74, eps:0.75, loss:178.6207 catastrophes:27

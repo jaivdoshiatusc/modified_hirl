@@ -11,7 +11,6 @@ from neural_nets import Dueling_DQN
 import torch.optim as optim
 import torch.nn as nn
 import torch.nn.functional as F
-# from apex import amp
 
 class AgentControl:
 
@@ -77,9 +76,12 @@ class AgentControl:
         # Finally we use squeeze(-1) to reduce dimensions from 2 to 1
         # curr_state_action_value = self.moving_nn(states_tensor).gather(1,actions_tensor[:,None]).squeeze(-1)
 
-        # Q(s, a_R):
+        # Q(s, a_R): Compute Q-values for the robot actions
+        # [B, 1, _] (where B is batch size, T is timesteps, and D is like the embedding dimension)
         curr_state_action_value = self.moving_nn(states_tensor).gather(1,actions_tensor[:,None]).squeeze(-1)  
-        # Q(s, a_H):
+        
+        # Q(s, a_H): Similarly, compute Q-values for the human actions
+        # [B, 1, _] (where B is batch size, T is timesteps, and D is like the embedding dimension)
         curr_state_human_action_value = self.moving_nn(states_tensor).gather(1,human_actions_tensor[:,None]).squeeze(-1)
 
         if self.double_dqn:
@@ -103,14 +105,27 @@ class AgentControl:
         q_target = human_rewards_tensor + (self.gamma ** self.multi_step) * next_state_action_value
         # Apply MSE Loss which will be applied to all BATCH_SIZEx1 rows and output will be 1x1 
     
+        # Stack the Q-values of human and robot actions along a new dimension for softmax computation
+        # [B, 2, _] (where B is batch size, T is timesteps, and D is like the embedding dimension)
         Q_values = torch.stack((curr_state_human_action_value, curr_state_action_value), dim=1)
+
+        # Compute the log softmax probabilities across the actions dimension
+        # This converts the Q-values into a log probability distribution
+        # [B, 2, _] (where B is batch size, T is timesteps, and D is like the embedding dimension)
         log_probs = F.log_softmax(Q_values, dim=1)
-        log_prob_aH = log_probs[:, 0][0]
 
+        # Extract the mean log probability for the human actions
+        # This is used for calculating a part of the loss related to human actions
+        # log_probs[:, 0] -> [B, 1, _] and .mean() results in a scalar.
+        log_prob_aH = log_probs[:, 0].mean()
+
+        # Calculate MSE loss between the Q-values of the current (robot) state and action pairs (a_R)
+        # and the target Q-values (based on human rewards and discounted next state values)
         mse_loss = self.loss(curr_state_action_value, q_target)
-        loss = mse_loss + log_prob_aH
 
-        # import ipdb; ipdb.set_trace()
+        # Combine the MSE loss with the mean log probability of the human actions
+        # This adds an additional term to the loss that accounts for the human actions
+        loss = mse_loss + log_prob_aH
 
         return loss
 
