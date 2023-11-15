@@ -9,6 +9,23 @@ import cv2
 Atari Wrapper copied from https://github.com/openai/baselines/blob/master/baselines/common/atari_wrappers.py
 '''
 
+class CatastropheZoneWrapper(gym.Wrapper):
+    def __init__(self, env, catastrophe_zone_threshold=150):
+        super().__init__(env)
+        self.catastrophe_zone_threshold = catastrophe_zone_threshold
+
+    def step(self, action):
+        observation, reward, done, info, _ = self.env.step(action)
+        catastrophe = self.detects_catastrophe()
+        if catastrophe:
+            observation, reward, done, info, _ = self.env.step(2) # 2 == RIGHT (UP)
+        return observation, reward, done, info, catastrophe
+
+    def detects_catastrophe(self):
+        ram = self.env.unwrapped.ale.getRAM()
+        paddle_y_position = ram[51]
+        
+        return paddle_y_position >= self.catastrophe_zone_threshold
 
 class LazyFrames(object):
     def __init__(self, frames):
@@ -72,7 +89,7 @@ class MaxAndSkipEnv(gym.Wrapper):
         total_reward = 0.0
         done = None
         for i in range(self._skip):
-            obs, reward, done, info = self.env.step(action)
+            obs, reward, done, truncated, info = self.env.step(action)
             if i == self._skip - 2: self._obs_buffer[0] = obs
             if i == self._skip - 1: self._obs_buffer[1] = obs
             total_reward += reward
@@ -159,6 +176,7 @@ class ScaledFloatFrame(gym.ObservationWrapper):
 
 def make_env(env_name, fire=True):
     env = gym.make("PongNoFrameskip-v4", obs_type='image')
+    env = CatastropheZoneWrapper(env)
     env = MaxAndSkipEnv(env) ## Return only every `skip`-th frame
     if fire:
        env = FireResetEnv(env) ## Fire at the beginning

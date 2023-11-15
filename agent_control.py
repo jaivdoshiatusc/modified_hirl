@@ -10,7 +10,8 @@ from neural_nets import DQN
 from neural_nets import Dueling_DQN
 import torch.optim as optim
 import torch.nn as nn
-from apex import amp
+import torch.nn.functional as F
+# from apex import amp
 
 class AgentControl:
 
@@ -54,20 +55,32 @@ class AgentControl:
         self.improve_params(loss)
         return loss.item()
 
+    '''
+    Change CALCULATE LOSS for HA / HR
+    '''
+
     def calc_loss(self, mini_batch):
-        states, actions, next_states, rewards, dones = mini_batch
+        # states, actions, next_states, rewards, dones = mini_batch
+        states, actions, next_states, rewards, dones, human_actions, human_rewards = mini_batch
         # Transform numpy array to Tensor and send it to GPU
         states_tensor = torch.as_tensor(states).to(self.device)
         next_states_tensor = torch.as_tensor(next_states).to(self.device)
         actions_tensor = torch.as_tensor(actions).to(self.device)
         rewards_tensor = torch.as_tensor(rewards, dtype=torch.float32).to(self.device)
         done_tensor = torch.as_tensor(dones, dtype=torch.uint8).to(self.device)
+        human_actions_tensor = torch.as_tensor(human_actions).to(self.device)
+        human_rewards_tensor = torch.as_tensor(human_rewards, dtype=torch.float32).to(self.device)
 
         # First we need to find value of action we decided to do
         # From inputing states into NN, we will get output matrix BATCH_SIZEx6
         # Then with tensor.gather(dimension, index) we find that value with index from actions
         # Finally we use squeeze(-1) to reduce dimensions from 2 to 1
-        curr_state_action_value = self.moving_nn(states_tensor).gather(1,actions_tensor[:,None]).squeeze(-1)
+        # curr_state_action_value = self.moving_nn(states_tensor).gather(1,actions_tensor[:,None]).squeeze(-1)
+
+        # Q(s, a_R):
+        curr_state_action_value = self.moving_nn(states_tensor).gather(1,actions_tensor[:,None]).squeeze(-1)  
+        # Q(s, a_H):
+        curr_state_human_action_value = self.moving_nn(states_tensor).gather(1,human_actions_tensor[:,None]).squeeze(-1)
 
         if self.double_dqn:
             # Double Q Learning will be implemented with getting max action (serial number) from first NN for each of 32 states,
@@ -87,9 +100,19 @@ class AgentControl:
         # so we dont have to remember operations for backprop. Good for huge amount of operations
         next_state_action_value = next_state_action_value.detach()
         # Calculate Q-target
-        q_target = rewards_tensor + (self.gamma ** self.multi_step) * next_state_action_value
+        q_target = human_rewards_tensor + (self.gamma ** self.multi_step) * next_state_action_value
         # Apply MSE Loss which will be applied to all BATCH_SIZEx1 rows and output will be 1x1 
-        return self.loss(curr_state_action_value, q_target)
+    
+        Q_values = torch.stack((curr_state_human_action_value, curr_state_action_value), dim=1)
+        log_probs = F.log_softmax(Q_values, dim=1)
+        log_prob_aH = log_probs[:, 0][0]
+
+        mse_loss = self.loss(curr_state_action_value, q_target)
+        loss = mse_loss + log_prob_aH
+
+        # import ipdb; ipdb.set_trace()
+
+        return loss
 
     def improve_params(self, loss):
         # Reset the grads

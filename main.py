@@ -7,8 +7,11 @@ Created on Sun Feb 28 11:02:18 2021
 import gym
 from agent import Agent
 import atari_wrappers
+import torch
 from torch.utils.tensorboard import SummaryWriter
 import time
+
+import wandb
 
 # ---------------------------------Parameters----------------------------------
 
@@ -22,22 +25,23 @@ DQN_HYPERPARAMS = {
     'gamma': 0.99,
     'n_iter_update_nn': 1000,
     'multi_step': 2,
-    'double_dqn': True,
+    'double_dqn': False,
     'dueling': False
 }
 
 ENV_NAME = "PongNoFrameskip-v4"
-RECORD = True
+RECORD = False
 MAX_GAMES = 500
 DEVICE = 'cuda'
 BATCH_SIZE = 32
 
 # For TensorBoard
-SUMMARY_WRITER = True
+SUMMARY_WRITER = False
+WANDB = True
 LOG_DIR = 'content/runs'
 name = 'DQN Multi-step=%d,Double=%r,Dueling=%r' % (DQN_HYPERPARAMS['multi_step'], DQN_HYPERPARAMS['double_dqn'], DQN_HYPERPARAMS['dueling'])
 # For Telegram
-TG_BOT = True
+TG_BOT = False
 
 # ------------------------Create enviroment and agent--------------------------
 env = atari_wrappers.make_env("PongNoFrameskip-v4")  # gym.make("PongNoFrameskip-v4")
@@ -47,17 +51,28 @@ if RECORD:
 obs = env.reset()
 # Create TensorBoard writer that will create graphs
 writer = SummaryWriter(log_dir=LOG_DIR + '/' + name + str(time.time())) if SUMMARY_WRITER else None
+run = wandb.init() if WANDB else None
 # Create agent that will learn
-agent = Agent(env, hyperparameters=DQN_HYPERPARAMS, device=DEVICE, writer=writer, max_games=MAX_GAMES, tg_bot=TG_BOT)
+agent = Agent(env, hyperparameters=DQN_HYPERPARAMS, device=DEVICE, writer=writer, max_games=MAX_GAMES, tg_bot=TG_BOT, wandb=run)
 # --------------------------------Learning-------------------------------------
 num_games = 0
 while num_games < MAX_GAMES:
     # Select one action with e-greedy policy and observe s,a,s',r and done
     action = agent.select_eps_greedy_action(obs)
-    # Take that action and observe s, a, s', r and done
-    new_obs, reward, done, _ = env.step(action)
-    # Add s, a, s', r to buffer B
-    agent.add_to_buffer(obs, action, new_obs, reward, done)
+    new_obs, reward, done, catastrophe = env.step(action)
+
+    # catastrophe implementation
+    human_action = int(action)
+    human_reward = reward
+    if catastrophe:
+        human_action = 2
+        human_reward = -100
+        agent.num_catasrophe += 1
+
+    # import ipdb; ipdb.set_trace()
+
+    # Add s, a, s', r, a_H, r_H to buffer B
+    agent.add_to_buffer(obs, action, new_obs, reward, done, human_action, human_reward)
     # Sample a mini-batch from buffer B if B is large enough. If not skip until it is.
     # Use that mini-batch to improve NN value function approximation
     agent.sample_and_improve(BATCH_SIZE)
@@ -68,6 +83,9 @@ while num_games < MAX_GAMES:
         agent.print_info()
         agent.reset_parameters()
         obs = env.reset()
+    
+savename = "./checkpoints/dqn_" + str(num_games) + ".pth"
+torch.save(agent.agent_control.moving_nn.state_dict(), savename)
 
 writer.close()
 gym.wrappers.Monitor.close(env)

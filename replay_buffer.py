@@ -32,16 +32,20 @@ class ReplayBuffer:
         next_states = []
         rewards = []
         dones = []
+        human_actions = []
+        human_rewards= []
         
         for transition in chosen_transitions:        
             i = 0
             total_reward = 0
+            total_human_reward = 0
             new_done = self.buffer[transition].done # Test and Delete!
             new_next_state = self.buffer[transition].next_state # Test and Delete!
             
             for i in range(self.multi_step):
                 if transition + i < len(self.buffer):
                     total_reward += self.buffer[transition + i].reward * (self.gamma ** i)
+                    total_human_reward += self.buffer[transition + i].human_reward * (self.gamma ** i)
                     new_done = self.buffer[transition + i].done
                     new_next_state = self.buffer[transition + i].next_state
                     # If we reached end of game dont look for more look ahead states
@@ -53,6 +57,8 @@ class ReplayBuffer:
             next_states.append(new_next_state)
             rewards.append(total_reward)
             dones.append(new_done)
+            human_actions.append(self.buffer[transition].human_action)
+            human_rewards.append(total_human_reward)
 
-        return (np.array(states, dtype=np.float32), np.array(actions, dtype=np.int64), np.array(next_states, dtype=np.float32), np.array(rewards, dtype=np.float32), np.array(dones, dtype=np.uint8))
+        return (np.array(states, dtype=np.float32), np.array(actions, dtype=np.int64), np.array(next_states, dtype=np.float32), np.array(rewards, dtype=np.float32), np.array(dones, dtype=np.uint8), np.array(human_actions, dtype=np.int64), np.array(human_rewards, dtype=np.float32))
 

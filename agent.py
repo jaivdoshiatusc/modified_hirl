@@ -13,14 +13,15 @@ from collections import namedtuple
 import time
 import numpy as np
 import math
-import telegram_bot as tg
+# import telegram_bot as tg
 
 
 class Agent:
 
-    Transition = namedtuple('Transition',('state', 'action', 'next_state', 'reward', 'done'), rename = False) # 'rename' means not to overwrite invalid field
+    Transition = namedtuple('Transition',('state', 'action', 'next_state', 'reward', 'done', 'human_action', 'human_reward'), rename = False)
+    # Transition = namedtuple('Transition',('state', 'action', 'next_state', 'reward', 'done'), rename = False) # 'rename' means not to overwrite invalid field
 
-    def __init__(self, env, hyperparameters, device, writer, max_games, tg_bot):
+    def __init__(self, env, hyperparameters, device, writer, max_games, tg_bot, wandb):
         self.eps_start = hyperparameters['eps_start']
         self.eps_end = hyperparameters['eps_end']
         self.eps_decay = hyperparameters['eps_decay']
@@ -33,7 +34,9 @@ class Agent:
         self.agent_control = AgentControl(env, device, hyperparameters['learning_rate'], hyperparameters['gamma'], hyperparameters['multi_step'], hyperparameters['double_dqn'], hyperparameters['dueling'])
         self.replay_buffer = ReplayBuffer(hyperparameters['buffer_size'], hyperparameters['buffer_minimum'], hyperparameters['multi_step'], hyperparameters['gamma'])
         self.summary_writer = writer
+        self.wandb = wandb
 
+        self.num_catasrophe = 0
         self.num_iterations = 0
         self.total_reward = 0
         self.num_games = 0
@@ -42,9 +45,6 @@ class Agent:
         self.ts = time.time()
         self.birth_time = time.time()
         self.rewards = []
-
-        if self.tg_bot:
-            tg.welcome_msg(hyperparameters['multi_step'], hyperparameters['double_dqn'], hyperparameters['dueling'])
 
     def select_greedy_action(self, obs):
         # Give current state to the control who will pass it to NN which will
@@ -60,13 +60,14 @@ class Agent:
             # Select best action
             return self.select_greedy_action(obs)
 
-    def add_to_buffer(self, obs, action, new_obs, reward, done):
-        transition = self.Transition(state = obs, action = action, next_state = new_obs, reward = reward, done = done)
+    def add_to_buffer(self, obs, action, new_obs, reward, done, human_action, human_reward):
+        transition = self.Transition(state = obs, action = action, next_state = new_obs, reward = reward, done = done, human_action = human_action, human_reward = human_reward)
+        # transition = self.Transition(state = obs, action = action, next_state = new_obs, reward = reward, done = done)
         self.replay_buffer.append(transition)
         self.num_iterations = self.num_iterations + 1
         if self.epsilon > self.eps_end:
             self.epsilon = self.eps_start - self.num_iterations / self.eps_decay
-        self.total_reward = self.total_reward + reward
+        self.total_reward = self.total_reward + human_reward
 
     def sample_and_improve(self, batch_size):
         # If buffer is big enough
@@ -86,13 +87,17 @@ class Agent:
         self.total_reward = 0
         self.num_games = self.num_games + 1
         self.total_loss = []
+        self.num_catasrophe = 0
 
     def print_info(self):
         # print(self.num_iterations, self.ts_frame, time.time(), self.ts)
         fps = (self.num_iterations-self.ts_frame)/(time.time()-self.ts)
-        print('%d %d rew:%d mean_rew:%.2f fps:%d, eps:%.2f, loss:%.4f' % (self.num_iterations, self.num_games, self.total_reward, np.mean(self.rewards[-40:]), fps, self.epsilon, np.mean(self.total_loss)))
+        print('%d %d rew:%d mean_rew:%.2f fps:%d, eps:%.2f, loss:%.4f catastrophes:%d' % (self.num_iterations, self.num_games, self.total_reward, np.mean(self.rewards[-40:]), fps, self.epsilon, np.mean(self.total_loss), self.num_catasrophe))
         self.ts_frame = self.num_iterations
         self.ts = time.time()
+
+        if self.wandb != None:
+            self.wandb.log({"num_games": self.num_games, "reward": self.total_reward, "mean_reward": np.mean(self.rewards[-40:]), "loss": np.mean(self.total_loss), "epsilon": self.epsilon, "num_catastrophe": self.num_catasrophe})
 
         if self.summary_writer != None:
             self.summary_writer.add_scalar('reward', self.total_reward, self.num_games)
@@ -100,13 +105,3 @@ class Agent:
             self.summary_writer.add_scalar('10_mean_reward', np.mean(self.rewards[-10:]), self.num_games)
             self.summary_writer.add_scalar('esilon', self.epsilon, self.num_games)
             self.summary_writer.add_scalar('loss', np.mean(self.total_loss), self.num_games)
-
-        if self.tg_bot:
-            if (self.num_games % 10) == 0:
-                tg.info_msg(self.num_games+1, self.max_games, np.mean(self.rewards[-40:]), np.mean(self.total_loss))
-            if self.num_games == (self.max_games - 1):
-                tg.end_msg(time.time() - self.birth_time)
-
-
-
-

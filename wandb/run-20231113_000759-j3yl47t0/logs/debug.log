@@ -1,0 +1,28 @@
+2023-11-13 00:07:59,949 INFO    MainThread:16140 [wandb_setup.py:_flush():76] Current SDK version is 0.15.12
+2023-11-13 00:07:59,949 INFO    MainThread:16140 [wandb_setup.py:_flush():76] Configure stats pid to 16140
+2023-11-13 00:07:59,949 INFO    MainThread:16140 [wandb_setup.py:_flush():76] Loading settings from /home/jaiv/.config/wandb/settings
+2023-11-13 00:07:59,949 INFO    MainThread:16140 [wandb_setup.py:_flush():76] Loading settings from /home/jaiv/modified_dqn_pong/wandb/settings
+2023-11-13 00:07:59,949 INFO    MainThread:16140 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-11-13 00:07:59,949 INFO    MainThread:16140 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-11-13 00:07:59,949 WARNING MainThread:16140 [wandb_setup.py:_flush():76] Could not save program above cwd: /home/jaiv/hirl/dqn.py
+2023-11-13 00:07:59,949 INFO    MainThread:16140 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': None, 'program_abspath': '/home/jaiv/hirl/dqn.py', 'program': '/home/jaiv/hirl/dqn.py'}
+2023-11-13 00:07:59,950 INFO    MainThread:16140 [wandb_init.py:_log_setup():528] Logging user logs to /home/jaiv/modified_dqn_pong/wandb/run-20231113_000759-j3yl47t0/logs/debug.log
+2023-11-13 00:07:59,950 INFO    MainThread:16140 [wandb_init.py:_log_setup():529] Logging internal logs to /home/jaiv/modified_dqn_pong/wandb/run-20231113_000759-j3yl47t0/logs/debug-internal.log
+2023-11-13 00:07:59,950 INFO    MainThread:16140 [wandb_init.py:init():568] calling init triggers
+2023-11-13 00:07:59,950 INFO    MainThread:16140 [wandb_init.py:init():575] wandb.init called with sweep_config: {}
+config: {'env_name': 'ALE/Pong-ram-v5', 'state_size': 128, 'action_size': 6, 'seed': 0, 'n_episodes': 5000, 'eps_start': 1.0, 'eps_end': 0.01, 'eps_decay': 0.995, 'buffer_size': 100000.0, 'batch_size': 64, 'gamma': 0.99, 'tau': 0.001, 'learning_rate': 0.0005, 'update_every': 4}
+2023-11-13 00:07:59,950 INFO    MainThread:16140 [wandb_init.py:init():618] starting backend
+2023-11-13 00:07:59,950 INFO    MainThread:16140 [wandb_init.py:init():622] setting up manager
+2023-11-13 00:07:59,952 INFO    MainThread:16140 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-11-13 00:07:59,963 INFO    MainThread:16140 [wandb_init.py:init():628] backend started and connected
+2023-11-13 00:07:59,967 INFO    MainThread:16140 [wandb_init.py:init():720] updated telemetry
+2023-11-13 00:08:00,021 INFO    MainThread:16140 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2023-11-13 00:08:00,375 INFO    MainThread:16140 [wandb_run.py:_on_init():2220] communicating current version
+2023-11-13 00:08:00,470 INFO    MainThread:16140 [wandb_run.py:_on_init():2229] got version response upgrade_message: "wandb version 0.16.0 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-11-13 00:08:00,470 INFO    MainThread:16140 [wandb_init.py:init():804] starting run threads in backend
+2023-11-13 00:08:15,891 INFO    MainThread:16140 [wandb_run.py:_console_start():2199] atexit reg
+2023-11-13 00:08:15,892 INFO    MainThread:16140 [wandb_run.py:_redirect():2054] redirect: wrap_raw
+2023-11-13 00:08:15,892 INFO    MainThread:16140 [wandb_run.py:_redirect():2119] Wrapping output streams.
+2023-11-13 00:08:15,892 INFO    MainThread:16140 [wandb_run.py:_redirect():2144] Redirects installed.
+2023-11-13 00:08:15,893 INFO    MainThread:16140 [wandb_init.py:init():845] run started, returning control to user process

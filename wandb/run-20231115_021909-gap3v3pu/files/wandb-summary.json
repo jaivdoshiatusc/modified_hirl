@@ -1,0 +1,1 @@
+{"num_games": 15, "reward": -2020.0, "mean_reward": -4144.933333333333, "loss": 621.2466840076574, "epsilon": 0.88333, "num_catastrophe": 20, "_timestamp": 1700014812.060333, "_runtime": 62.265625953674316, "_step": 15, "_wandb": {"runtime": 62}}
